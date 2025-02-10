@@ -3,7 +3,7 @@ include("functions/to_include.jl")
 function main()
 
     n_chains = 3
-    n_iterations = 1_000_000
+    n_iterations = 10_000
     # number of parameters in the objective function
     n_parameters = 4
 
@@ -24,6 +24,6 @@ function main()
 end
 
 mv_normal(x) = pdf(multivariate(x), x)
-multivariate(x) = MvNormal(zeros(length(x)), Diagonal(ones(length(x))) * 0.1)
+multivariate(x) = MvNormal(zeros(length(x)), Diagonal(ones(length(x))) * 1.0)
 
 main()

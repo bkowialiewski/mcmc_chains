@@ -28,7 +28,7 @@ $$ \hat{V} = ((n - 1) / n)W + (1 / n)B $$
 
 In this formula, n is the number of samples in the chain. W and B are the within- and between-chain variances, respectively:
 
-$$ W = 1 / m \sum_{i=1}^m s_{i}^2 $$
+$$ W = 1 / m \sum_{i=1}^m Var(x_{i}) $$
 
 $$ B = n Var(\bar{X}) $$
 

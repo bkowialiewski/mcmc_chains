@@ -1,18 +1,16 @@
 function get_r_hat(chains)
 
-    m = length(chains)
+    # number of samples
     n = length(chains[1])
 
     within = within_variance(chains)
-    between = between_variance(n, m, chains)
-    V_hat = estimated_variance(n, within, between)
+    between = between_variance(n, chains)
+    estimated = estimated_variance(n, within, between)
 
-    # final r_hat value
-    sqrt(V_hat / within)
+    sqrt(estimated / within)
 
 end
 
-within_variance(chains) = mean(var.(chains))
-between_variance(n, m, chains) = (n / (m-1)) * sum(mean.(chains) .- mean_hat(chains))
-estimated_variance(n, within, between) = ((n-1)/n)*within + (1/n)*between
-mean_hat(x) = mean(mean.(x)) # grand average - more efficient
+within_variance(chains) = mean(var.(chains, corrected = true))
+between_variance(n, chains) = n * var(mean.(chains), corrected = true)
+estimated_variance(n, within, between) = ((n - 1) / n) * within + (1.0 / n) * between

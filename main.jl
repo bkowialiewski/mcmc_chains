@@ -2,6 +2,8 @@ include("functions/to_include.jl")
 
 function main()
 
+    Random.seed!(1234)
+
     n_chains = 3
     n_iterations = 10_000
     # number of parameters in the objective function
@@ -17,9 +19,10 @@ function main()
     # this is where the magic happens
     @time chains = map(_ -> metropolis(n_iterations, n_parameters, f), 1:n_chains)
 
-    plot_chains(chains)
+    p = plot_chains(chains)
 
-    nothing
+    savefig(p, "plots/small_sigma.png")
+    display(p)
 
 end
 

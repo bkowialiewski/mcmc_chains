@@ -1,10 +1,11 @@
 function metropolis(n_iterations, n_parameters, f)
 
     # standard deviation in parameter sample
-    sigma = 1.0
+    sigma = 0.01
 
     # define a generic burn-in period
     burn_in = Int(floor(n_iterations / 4))
+    # burn_in = 1
 
     # pre-allocate memory for the x values
     xs = zeros(n_iterations, n_parameters)
@@ -37,6 +38,6 @@ function metropolis(n_iterations, n_parameters, f)
 
     end
 
-    xs[burn_in:end,:]
+    xs[(burn_in+1):end,:]
 
 end

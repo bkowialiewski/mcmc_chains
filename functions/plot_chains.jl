@@ -3,7 +3,7 @@ function plot_chains(chains)
     n_chains = length(chains)
     n_parameters = size(chains[1], 2)
 
-    # p = plot(layout = (n_parameters,2), size = (600, 600), dpi = 500)
+    p = plot(layout = (n_parameters,2), size = (600, 600), dpi = 500)
 
     for i in 1:n_parameters
 
@@ -19,9 +19,7 @@ function plot_chains(chains)
 
 
     end
-    savefig(p, "plots/chains.png")
-    display(p)
-
-    return nothing
+    
+    p
 
 end

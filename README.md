@@ -30,9 +30,9 @@ In this formula, n is the number of samples in the chain. W and B are the within
 
 $$ W = 1 / m \sum_{i=1}^m s_{i}^2 $$
 
-$$ B = n \bar{s^2} $$
+$$ B = n Var(\bar{X}) $$
 
-Where $\bar{s^2}$ is the variance of the mean of each chain. 
+Where $Var(\bar{X})$ is the variance of the mean of each chain. 
 
 ## Results
 

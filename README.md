@@ -20,9 +20,9 @@ The Metropolis algorithm begins by selecting a random starting value $x_i$ often
 
 To assess the performance of the algorithm, we can use different tools. The first one is to plot a the transitions between successive states of the chains and check if they sufficiently explored the parameter space to a similar extent. Another, more objective way to assess convergence is by using a more objective metric. One can compute the $\hat{R}$ index, which compares the variability within individual chains to the variability between chains. An $\hat{R}$ value close to 1 indicates good convergence, meaning that the chains have likely reached the target distribution. It is computed using the following formula:
 
-$$ \sqrt{\hat{V} / W} $$
+$$ \hat{R} = \sqrt{\hat{V} / W} $$
 
-Where \hat{V} is the marginal posterior variance, given by:
+Where $\hat{V}$ is the marginal posterior variance, given by:
 
 $$ \hat{V} = ((n - 1) / n)W + (1 / n)B $$
 
@@ -30,9 +30,9 @@ In this formula, n is the number of samples in the chain. W and B are the within
 
 $$ W = 1 / m \sum_{i=1}^m s_{i}^2 $$
 
-$$ B = n s_{m}^2 $$
+$$ B = n \bar{s}^2 $$
 
-Hence, the within-variance $W$ is the averaged variance of individual chains, and the between-chain variance $B$ is the variance of the mean of each chain.
+Where \bar{s}^2 is the variance of the mean of each chain. 
 
 ## Results
 
